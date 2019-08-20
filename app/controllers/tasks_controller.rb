@@ -43,4 +43,8 @@ class TasksController < ApplicationController
       params.require(:task).permit(:name, :description)
     end
 
+    def validate_name_not_including_comma
+      errors.add(:name, "にカンマを含めることはできません") if name&.include?(',')
+    end
+
 end
