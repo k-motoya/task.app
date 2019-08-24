@@ -11,6 +11,12 @@ class SessionsController < ApplicationController
     else
       render :new
   end
+
+  def destroy
+    reset_session
+    redirect_to root_url, notice: 'ログアウトしました'
+  end
+
 end
 
 private
