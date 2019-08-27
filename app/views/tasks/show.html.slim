@@ -5,14 +5,14 @@ h1 タスクの詳細
 table.table.table-hover
   tbody
     tr
-      th= Task.human_attribute_name(:id )
+      th= Task.human_attribute_name(:id)
       td= @task.id
     tr
       th= Task.human_attribute_name(:name)
       td= @task.name
       tr
         th= Task.human_attribute_name(:description)
-        td= simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")
+        td= auto_link(simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div"))
       tr
         th= Task.human_attribute_name(:created_at)
         td= @task.created_at
