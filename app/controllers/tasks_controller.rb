@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.order(created_at: :desc)
   end
 
   def show
@@ -43,8 +43,6 @@ class TasksController < ApplicationController
       params.require(:task).permit(:name, :description)
     end
 
-    def validate_name_not_including_comma
-      errors.add(:name, "にカンマを含めることはできません") if name&.include?(',')
-    end
+    
 
 end
