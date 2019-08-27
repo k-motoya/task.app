@@ -5,6 +5,11 @@ class Task < ApplicationRecord
 
   belongs_to :user
 
+  scope :recent, -> { order(created_at: :desk)}
+
+
+
+
 private
 
   def validate_name_not_including_comma
